@@ -1,16 +1,9 @@
-Board: Beaglebone-black armv7l
-
-Kernel: 4.14.108-ti-r113
-
-GCC: gcc version 6.3.0 20170516 (Debian 6.3.0-18+deb9u1)
-
 ---------------------------------------------------------------
-
 sr#: 0101
 
-Exercises:
-1. Write a simple kernel module, that prints "Hello-World" when insmoded
-into kernel, and "GoodBye-World" when removed.
+Exercise:
+1. Write a simple kernel module, that prints "Hello-World" when inserted
+into kernel, and "GoodBye-World" when removed from kernel.
 
 2. Make relavant changes to load/unload the module from any directoty.
 
@@ -39,7 +32,7 @@ $ sudo modprobe -r 0101-hello-world
 modinfo:
 --------------
 filename: /home/debian/linux-device-drivers/0101-hello-world/0101_hello_world.ko
-depends:        
+depends:
 name:           0101_hello_world
 vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8
 ----------------
