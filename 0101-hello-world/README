@@ -1,0 +1,47 @@
+Board: Beaglebone-black armv7l
+
+Kernel: 4.14.108-ti-r113
+
+GCC: gcc version 6.3.0 20170516 (Debian 6.3.0-18+deb9u1)
+
+---------------------------------------------------------------
+
+sr#: 0101
+
+Exercises:
+1. Write a simple kernel module, that prints "Hello-World" when insmoded
+into kernel, and "GoodBye-World" when removed.
+
+2. Make relavant changes to load/unload the module from any directoty.
+
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/0101-hello-world.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/0101-hello-world.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe 0101-hello-world
+
+unload(using rmmod):
+$ sudo rmmod 0101-hello-world
+unload(using modprobe):
+$ sudo modprobe -r 0101-hello-world
+
+modinfo:
+--------------
+filename: /home/debian/linux-device-drivers/0101-hello-world/0101_hello_world.ko
+depends:        
+name:           0101_hello_world
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8
+----------------
+
+---------------------------------------------------------------
