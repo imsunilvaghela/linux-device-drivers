@@ -1,0 +1,48 @@
+---------------------------------------------------------------
+sr#: 0102
+
+Exercise:
+1. Write a kernel module, that prints "Hello Universe" when inserted into
+   kernel, and "GoodBye Universe" when removed from kernel.
+
+2. Use your own init and exit function instread of init_module() and
+   cleanup_module() functions
+
+3. Use MODULE_LICENSE(), MODULE_AUTHOR() and MODULE_DESCRIPTION() macros for
+   module documentation
+
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/0102_hello_universe.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/0102_hello_universe.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe 0102_hello_universe.ko
+
+unload(using rmmod):
+$ sudo rmmod 0102_hello_universe
+unload(using modprobe):
+$ sudo modprobe -r 0102_hello_universe
+
+modinfo:
+----------------
+filename:
+/home/debian/linux-device-drivers/0102-hello-universe/0102_hello_universe.ko
+description:    Hello Universe
+author:         Sunil Vaghela
+license:        GPL
+depends:        
+name:           0102_hello_universe
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+----------------
+
+---------------------------------------------------------------

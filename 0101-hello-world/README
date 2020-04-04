@@ -3,10 +3,13 @@ sr#: 0101
 
 Exercise:
 1. Write a simple kernel module, that prints "Hello-World" when inserted
-into kernel, and "GoodBye-World" when removed from kernel.
+   into kernel, and "GoodBye-World" when removed from kernel.
 
 2. Make relavant changes to load/unload the module from any directoty.
 
+3. Change the return value of init function to something negative,recompile and
+   load the module again, and see what happens? Do this experiment with positive
+   values greater than zero.
 ---------------------------------------------------------------
 To be filled by the programmer:
 
