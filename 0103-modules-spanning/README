@@ -1,0 +1,37 @@
+---------------------------------------------------------------
+sr#: 0103
+
+Exercise:
+1. Write a kernel module in which use two init and exit functions in two
+   different files
+
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/0103_module_spanning.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/0103_module_spanning.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe 0103_module_spanning
+
+unload(using rmmod):
+$ sudo rmmod 0103_module_spanning
+unload(using modprobe):
+$ sudo modprobe -r 0103_module_spanning
+
+modinfo:
+----------------
+filename: /home/debian/linux-device-drivers/0103-modules-spanning/0103_module_spanning.ko
+depends:        
+name:           0103_module_spanning
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+----------------
+---------------------------------------------------------------
