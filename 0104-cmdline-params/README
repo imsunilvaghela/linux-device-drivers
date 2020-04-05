@@ -1,0 +1,46 @@
+---------------------------------------------------------------
+sr#: 0103
+
+Exercise:
+1. To demonstrate command line parameters passing to a kernel module
+
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/0104_cmdline_param.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/0104_cmdline_param.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe 0104_cmdline_param
+
+unload(using rmmod):
+$ sudo rmmod 0104_cmdline_param.ko
+unload(using modprobe):
+$ sudo modprobe -r 0104_cmdline_param.ko
+
+modinfo:
+----------------
+filename: /home/debian/linux-device-drivers/0104-cmdline-params/0104_cmdline_param.ko
+description:    Demonstrates command line argument passing to a module
+author:         Sunil Vaghela
+license:        GPL
+depends:        
+name:           0104_cmdline_param
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+parm:           cmd_short:A short integer number (short)
+parm:           lucky_number:A lucky number (int)
+parm:           cmd_long:A readonly long number (long)
+parm:           cmd_charp:A readonly string (charp)
+parm:           fav_colors:Favourite colors (string)
+parm:           cmd_int_array:An int array of 5 (array of int)
+parm:           fav_letters:5 favourite letters (array of byte)
+----------------
+---------------------------------------------------------------
