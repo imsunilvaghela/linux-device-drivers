@@ -1,0 +1,41 @@
+---------------------------------------------------------------
+sr#: 0201
+
+Exercise:
+1. Write a kernel module to demonstrate basic character device driver
+   allocation and registration procedure
+
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/0201_chrdev_basic.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/0201_chrdev_basic.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe 0201_chrdev_basic
+
+unload(using rmmod):
+$ sudo rmmod 0201_chrdev_basic
+unload(using modprobe):
+$ sudo modprobe -r 0201_chrdev_basic
+
+modinfo:
+----------------
+filename:
+/home/debian/linux-device-drivers/0201-chardev-basic/0201_chrdev_basic.ko
+description:    Basic character device module
+license:        GPL
+author:         Sunil Vaghela
+depends:        
+name:           0201_chrdev_basic
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+----------------
+---------------------------------------------------------------
