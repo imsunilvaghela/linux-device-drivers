@@ -1,0 +1,43 @@
+---------------------------------------------------------------
+sr#: 0202
+
+Exercise:
+1. Write a read-only char device that print "Hello-World" with a count attached
+in it, which increaments everytime we read the dev file
+e.g. Hello-world-1
+	 Hello-world-2
+	 Hello-world-3
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/0202_chardev_fops.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/0202_chardev_fops.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe 0202_chardev_fops
+
+unload(using rmmod):
+$ sudo rmmod 0202_chardev_fops
+unload(using modprobe):
+$ sudo modprobe -r 0202_chardev_fops
+
+modinfo:
+----------------
+debian@beaglebone:~/linux-device-drivers/0202-chardev-fops$ modinfo 0202_chardev_fops.ko
+filename: /home/debian/linux-device-drivers/0202-chardev-fops/0202_chardev_fops.ko
+description:    Demonstrate file operations functionality
+license:        GPL
+author:         Sunil Vaghela
+depends:        
+name:           0202_chardev_fops
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+----------------
+---------------------------------------------------------------

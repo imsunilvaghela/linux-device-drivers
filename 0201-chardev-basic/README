@@ -2,8 +2,7 @@
 sr#: 0201
 
 Exercise:
-1. Write a kernel module to demonstrate basic character device driver
-   allocation and registration procedure
+1. Write a kernel module to demonstrate the major and minor number dynamocally
 
 ---------------------------------------------------------------
 To be filled by the programmer:
@@ -31,7 +30,7 @@ modinfo:
 ----------------
 filename:
 /home/debian/linux-device-drivers/0201-chardev-basic/0201_chrdev_basic.ko
-description:    Basic character device module
+description:    Basic driver to allocate major/minor number dynamically
 license:        GPL
 author:         Sunil Vaghela
 depends:        
