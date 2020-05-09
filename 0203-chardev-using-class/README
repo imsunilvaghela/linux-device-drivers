@@ -1,0 +1,38 @@
+---------------------------------------------------------------
+sr#: 0203
+
+Exercise:
+1. Write a character driver that create a device file automatically when laoded. 
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/0203_chardev_using_class.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/0203_chardev_using_class.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe 0203_chardev_using_class
+
+unload(using rmmod):
+$ sudo rmmod 0203_chardev_using_class
+unload(using modprobe):
+$ sudo modprobe -r 0203_chardev_using_class
+
+modinfo:
+----------------
+filename: /home/debian/linux-device-drivers/0203-chardev-using-class/0203_chardev_using_class.ko
+description:    A demonstration of device class APIs to create the device file automatically
+author:         Sunil Vaghela <sunilvaghela09@gmail.com>
+license:        GPL
+depends:        
+name:           0203_chardev_using_class
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+----------------
+---------------------------------------------------------------
