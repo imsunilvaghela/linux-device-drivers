@@ -1,0 +1,44 @@
+---------------------------------------------------------------
+sr#: 0301
+
+Exercise:
+1. A simple example to create a proc/ entruy, which reads helloworld with a read
+   count.
+   e.g.
+      helloworld-1
+      helloworld-2
+      helloworld-3
+      ...
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/procfs_read.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/procfs_read.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe procfs_read
+
+unload(using rmmod):
+$ sudo rmmod procfs_read
+unload(using modprobe):
+$ sudo modprobe -r procfs_read
+
+modinfo:
+----------------
+filename: /home/debian/linux-device-drivers/0301_procfs_read/procfs_read.ko
+description:    Example to create and read /proc/ entries
+author:         Sunil Vaghela <sunilvaghela09@gmail.com>
+license:        GPL
+depends:        
+name:           procfs_read
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+----------------
+---------------------------------------------------------------
