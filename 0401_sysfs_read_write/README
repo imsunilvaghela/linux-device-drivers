@@ -1,0 +1,40 @@
+---------------------------------------------------------------
+sr#: 0401
+
+Exercise:
+To demonstrate sysfs entry create, read and write functionality
+  - User should be able to read and write into sysfs file from userspace
+  - Last written value should remain persist on every read call
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/sysfs_rw.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/sysfs_rw.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe sysfs_rw
+
+unload(using rmmod):
+$ sudo rmmod sysfs_rw
+unload(using modprobe):
+$ sudo modprobe -r sysfs_rw
+
+modinfo:
+----------------
+filename:       /home/debian/linux-device-drivers/0401_sysfs_read_write/sysfs_rw.ko
+description:    A simple device driver - SysFs
+author:         Sunil Vaghela <sunilvaghela09@gmail.com>
+license:        GPL
+depends:        
+name:           sysfs_rw
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+----------------
+---------------------------------------------------------------
