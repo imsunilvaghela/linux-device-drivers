@@ -101,7 +101,7 @@ static int __init etx_driver_init(void)
         /* Adding character device to the system */
         if((cdev_add(&etx_cdev, dev, 1)) < 0) {
             printk(KERN_INFO "Cannot add the device to the system\n");
-            goto r_class;
+            goto r_cdev;
         }
  
         /* Creating struct class */
@@ -130,12 +130,11 @@ static int __init etx_driver_init(void)
 
 r_sysfs:
         kobject_put(kobj_ref); 
-        sysfs_remove_file(kernel_kobj, &etx_attr.attr);
- 
 r_device:
         class_destroy(dev_class);
 r_class:
         cdev_del(&etx_cdev);
+r_cdev:
         unregister_chrdev_region(dev,1);
         return -1;
 }

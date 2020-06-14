@@ -1,0 +1,42 @@
+---------------------------------------------------------------
+sr#: 0501
+
+Exercise:
+    - Create a module which support ioctl read and write functionalities
+    - Access the read/write ioctl of the module from userspace program
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Driver Compilation steps:
+$ make
+
+Test application compilation steps:
+$ gcc test_app.c -o test_app
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/ioctl_rw_custom.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/ioctl_rw_custom.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe ioctl_rw_custom
+
+unload(using rmmod):
+$ sudo rmmod ioctl_rw_custom
+unload(using modprobe):
+$ sudo modprobe -r ioctl_rw_custom
+
+modinfo:
+----------------
+filename: /home/debian/linux-device-drivers/0501_ioctl_read_write/ioctl_rw_custom.ko
+description:    A simple IOCTL device driver
+author:         Sunil Vaghela <sunilvaghela09@gmail.com>
+license:        GPL
+depends:        
+name:           ioctl_rw_custom
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8
+----------------
+---------------------------------------------------------------
