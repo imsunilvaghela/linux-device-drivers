@@ -1,0 +1,39 @@
+---------------------------------------------------------------
+sr#: 0602
+
+Exercise:
+    - Demonstrate simple dynamic waitqueue example
+    - On every read event, device driver should return incremental read count
+---------------------------------------------------------------
+To be filled by the programmer:
+
+Driver Compilation steps:
+$ make
+
+module dependencies:
+NONE
+
+load(using insmod):
+$ sudo insmod <path_to_module>/wq_dynamic.ko
+
+load(using modprobe):
+$ sudo cp <path_to_module>/wq_dynamic.ko /lib/modules/`uname -r`/
+$ sudo depmod -a
+$ sudo modprobe wq_dynamic
+
+unload(using rmmod):
+$ sudo rmmod wq_dynamic
+unload(using modprobe):
+$ sudo modprobe -r wq_dynamic
+
+modinfo:
+----------------
+filename: /home/debian/linux-device-drivers/0601_waitqueue_dynamic/wq_dynamic.ko
+description:    Demonstation of waitqueue using dynamic initialization
+author:         Sunil Vaghela <sunilvaghela09@gmail.com>
+license:        GPL
+depends:        
+name:           wq_dynamic
+vermagic:       4.14.108-ti-r113 SMP preempt mod_unload modversions ARMv7 p2v8 
+----------------
+---------------------------------------------------------------
